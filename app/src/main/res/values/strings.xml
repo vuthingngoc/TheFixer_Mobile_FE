@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TheFixer</string>
+    <string name="title_home">Home</string>
+    <string name="title_activity">Activity</string>
+    <string name="title_payment">Payment</string>
+    <string name="title_inbox">Inbox</string>
+    <string name="title_account">Account</string>
+</resources>
