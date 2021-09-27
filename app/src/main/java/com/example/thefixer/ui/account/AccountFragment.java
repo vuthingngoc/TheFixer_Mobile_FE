@@ -12,35 +12,21 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.thefixer.R;
 import com.example.thefixer.databinding.FragmentAccountBinding;
-import com.example.thefixer.databinding.FragmentInboxBinding;
 
 public class AccountFragment extends Fragment {
 
-    private AccountViewModel accountViewModel;
-    private FragmentAccountBinding binding;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        accountViewModel =
-                new ViewModelProvider(this).get(AccountViewModel.class);
-
-    binding = FragmentAccountBinding.inflate(inflater, container, false);
-    View root = binding.getRoot();
-
-        final TextView textView = binding.textAccount;
-        accountViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
+        return view;
     }
 
-@Override
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
     }
 }

@@ -25,13 +25,13 @@
 
     <fragment
         android:id="@+id/navigation_inbox"
-        android:name="com.example.thefixer.ui.payment.PaymentFragment"
+        android:name="com.example.thefixer.ui.inbox.InboxFragment"
         android:label="@string/title_inbox"
         tools:layout="@layout/fragment_payment" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.thefixer.ui.payment.PaymentFragment"
+        android:name="com.example.thefixer.ui.account.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_payment" />
 </navigation>
