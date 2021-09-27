@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.thefixer.databinding.FragmentActivityBinding;
 import com.example.thefixer.databinding.FragmentInboxBinding;
 
 public class InboxFragment extends Fragment {
@@ -22,11 +21,10 @@ public class InboxFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        inboxViewModel =
-                new ViewModelProvider(this).get(InboxViewModel.class);
+        inboxViewModel = new ViewModelProvider(this).get(InboxViewModel.class);
 
-    binding = FragmentInboxBinding.inflate(inflater, container, false);
-    View root = binding.getRoot();
+        binding = FragmentInboxBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
         final TextView textView = binding.textInbox;
         inboxViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -38,7 +36,7 @@ public class InboxFragment extends Fragment {
         return root;
     }
 
-@Override
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
