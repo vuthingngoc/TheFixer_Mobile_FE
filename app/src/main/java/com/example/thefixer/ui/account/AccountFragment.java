@@ -17,6 +17,9 @@ import com.example.thefixer.databinding.FragmentAccountBinding;
 
 public class AccountFragment extends Fragment {
 
+    public AccountFragment(){
+
+    }
 
     @Nullable
     @Override

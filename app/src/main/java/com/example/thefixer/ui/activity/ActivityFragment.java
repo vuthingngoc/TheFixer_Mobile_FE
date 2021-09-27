@@ -11,34 +11,22 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.thefixer.R;
 import com.example.thefixer.databinding.FragmentActivityBinding;
 
 public class ActivityFragment extends Fragment {
 
-    private ActivityViewModel activityViewModel;
-    private FragmentActivityBinding binding;
+    public ActivityFragment(){}
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-        activityViewModel =
-                new ViewModelProvider(this).get(ActivityViewModel.class);
-
-    binding = FragmentActivityBinding.inflate(inflater, container, false);
-    View root = binding.getRoot();
-
-        final TextView textView = binding.textActivity;
-        activityViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_activity, container, false);
+        return view;
     }
 
-@Override
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
-        binding = null;
     }
 }
