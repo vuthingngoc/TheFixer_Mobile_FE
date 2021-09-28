@@ -1,4 +1,4 @@
-package com.example.thefixer;
+package com.example.thefixer.ui.payment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,16 +12,18 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.thefixer.R;
-import com.example.thefixer.databinding.FragmentActivityBinding;
+import com.example.thefixer.databinding.FragmentPaymentBinding;
 
-public class ActivityFragment extends Fragment {
+public class PaymentFragment extends Fragment {
 
-    public ActivityFragment(){}
+    public PaymentFragment(){
+
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_activity, container, false);
+        View view = inflater.inflate(R.layout.fragment_payment, container, false);
         return view;
     }
 
