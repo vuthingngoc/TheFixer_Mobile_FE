@@ -168,6 +168,7 @@
                             android:textSize="12dp"
                             android:textStyle="bold" />
                     </LinearLayout>
+
                 </TableRow>
 
             </TableLayout>
@@ -206,13 +207,25 @@
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textAlignment="center"/>
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="80dp"
-                            android:layout_height="110dp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/avatar"
-                            app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="110dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/avatar"
+                                app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:background="@drawable/rounded_border_white"
+                                android:padding="5dp"
+                                android:src="@drawable/green_circle" />
+                        </FrameLayout>
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -286,6 +299,7 @@
                             android:text="1.0 km"
                             android:layout_marginLeft="20dp"
                             android:textColor="#938C8C"/>
+
                     </LinearLayout>
                 </TableRow>
             </LinearLayout>
@@ -314,13 +328,25 @@
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textAlignment="center"/>
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="80dp"
-                            android:layout_height="110dp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/avatar"
-                            app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="110dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/avatar"
+                                app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:background="@drawable/rounded_border_white"
+                                android:padding="5dp"
+                                android:src="@drawable/green_circle" />
+                        </FrameLayout>
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -394,6 +420,7 @@
                             android:text="1.0 km"
                             android:layout_marginLeft="20dp"
                             android:textColor="#938C8C"/>
+
                     </LinearLayout>
                 </TableRow>
             </LinearLayout>
@@ -422,13 +449,25 @@
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textAlignment="center"/>
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="80dp"
-                            android:layout_height="110dp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/avatar"
-                            app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="110dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/avatar"
+                                app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:background="@drawable/rounded_border_white"
+                                android:padding="5dp"
+                                android:src="@drawable/green_circle" />
+                        </FrameLayout>
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -502,6 +541,7 @@
                             android:text="1.0 km"
                             android:layout_marginLeft="20dp"
                             android:textColor="#938C8C"/>
+
                     </LinearLayout>
                 </TableRow>
             </LinearLayout>
@@ -530,13 +570,25 @@
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textAlignment="center"/>
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="80dp"
-                            android:layout_height="110dp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/avatar"
-                            app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="110dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/avatar"
+                                app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:background="@drawable/rounded_border_white"
+                                android:padding="5dp"
+                                android:src="@drawable/green_circle" />
+                        </FrameLayout>
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -610,6 +662,7 @@
                             android:text="1.0 km"
                             android:layout_marginLeft="20dp"
                             android:textColor="#938C8C"/>
+
                     </LinearLayout>
                 </TableRow>
             </LinearLayout>
@@ -638,13 +691,25 @@
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textAlignment="center"/>
-                        <com.google.android.material.imageview.ShapeableImageView
-                            android:layout_width="80dp"
-                            android:layout_height="110dp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/avatar"
-                            app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="110dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/avatar"
+                                app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:background="@drawable/rounded_border_white"
+                                android:padding="5dp"
+                                android:src="@drawable/green_circle" />
+                        </FrameLayout>
+
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -718,6 +783,7 @@
                             android:text="1.0 km"
                             android:layout_marginLeft="20dp"
                             android:textColor="#938C8C"/>
+
                     </LinearLayout>
                 </TableRow>
             </LinearLayout>
