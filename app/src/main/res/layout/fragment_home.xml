@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HomeFragment">
+    tools:context=".ui.home.HomeFragment">
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -27,8 +27,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
-                    android:src="@drawable/electric_icon"
-                    android:contentDescription="@string/electric_icon"/>
+                    android:src="@drawable/electric_icon" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -36,7 +35,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/text_electronic"
                     android:textColor="@color/black"
-                    android:textSize="13sp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -59,7 +58,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/text_vehicle"
                     android:textColor="@color/black"
-                    android:textSize="13sp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -82,7 +81,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/text_computer"
                     android:textColor="@color/black"
-                    android:textSize="13sp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -111,7 +110,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/text_security"
                     android:textColor="@color/black"
-                    android:textSize="13sp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -134,7 +133,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/text_plumber"
                     android:textColor="@color/black"
-                    android:textSize="13sp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -157,7 +156,7 @@
                     android:gravity="center_horizontal"
                     android:text="@string/text_mobile"
                     android:textColor="@color/black"
-                    android:textSize="13sp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
             </LinearLayout>
         </TableRow>
@@ -171,9 +170,9 @@
         android:paddingVertical="10dp"
         android:text="@string/label_fixer_nearby"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="18dp"
         android:textStyle="bold" />
-
+  
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -199,6 +198,5 @@
         </TableRow>
 
     </LinearLayout>
-
 
 </LinearLayout>
