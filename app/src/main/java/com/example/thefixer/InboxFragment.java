@@ -1,4 +1,4 @@
-package com.example.thefixer.ui.inbox;
+package com.example.thefixer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
