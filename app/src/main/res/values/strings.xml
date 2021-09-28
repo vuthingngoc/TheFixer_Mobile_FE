@@ -5,4 +5,18 @@
     <string name="title_payment">Payment</string>
     <string name="title_inbox">Inbox</string>
     <string name="title_account">Account</string>
+    <string name="electric_icon">ElectricDescription</string>
+    <string name="vehicle_icon">VehicleDescription</string>
+    <string name="computer_icon">ComputerDescription</string>
+    <string name="security_icon">SecurityDescription</string>
+    <string name="plumber_icon">PlumberDescription</string>
+    <string name="mobile_icon">MobileDescription</string>
+    <string name="text_electronic">Electronic</string>
+    <string name="text_vehicle">Vehicle</string>
+    <string name="text_computer">Computer</string>
+    <string name="text_security">Security</string>
+    <string name="text_plumber">Plumber</string>
+    <string name="text_mobile">Mobile</string>
+    <string name="label_fixer_nearby">Best Fixer Nearby</string>
+
 </resources>

@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.thefixer.ui.home.HomeFragment"
+        android:name="com.example.thefixer.HomeFragment"
         android:label="Good Morning, Anna!"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_activity"
-        android:name="com.example.thefixer.ui.activity.ActivityFragment"
+        android:name="com.example.thefixer.ActivityFragment"
         android:label="@string/title_activity"
         tools:layout="@layout/fragment_activity" />
 
     <fragment
         android:id="@+id/navigation_payment"
-        android:name="com.example.thefixer.ui.payment.PaymentFragment"
+        android:name="com.example.thefixer.PaymentFragment"
         android:label="@string/title_payment"
         tools:layout="@layout/fragment_payment" />
 
     <fragment
         android:id="@+id/navigation_inbox"
-        android:name="com.example.thefixer.ui.inbox.InboxFragment"
+        android:name="com.example.thefixer.InboxFragment"
         android:label="@string/title_inbox"
         tools:layout="@layout/fragment_payment" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.thefixer.ui.account.AccountFragment"
+        android:name="com.example.thefixer.AccountFragment"
         android:label="@string/title_account"
         tools:layout="@layout/fragment_payment" />
 </navigation>
