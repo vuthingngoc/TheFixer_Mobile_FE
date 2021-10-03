@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="light_blue">#5EDDD5</color>
     <color name="lighter_blue">#85D5D0</color>
+
     <color name="colorPrimary">#26C6DA</color>
     <color name="colorPrimaryDark">#26C6DA</color>
     <color name="colorAccent">#EF5350</color>
@@ -310,4 +311,9 @@
     <color name="md_blue_grey_700">#455A64</color>
     <color name="md_blue_grey_800">#37474F</color>
     <color name="md_blue_grey_900">#263238</color>
+
+    <color name="green">#60AA08</color>
+    <color name="green_lighter">#AAF146</color>
+
+
 </resources>

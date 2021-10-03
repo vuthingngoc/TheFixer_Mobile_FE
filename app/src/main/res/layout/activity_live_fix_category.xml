@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LiveFixCategoryActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit your information:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:background="@drawable/border_linearlayout_red"
+        android:onClick="clickToEditInfo">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_location"
+                android:paddingHorizontal="10dp"/>
+            <TextView
+                android:id="@+id/txtInfoAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[399/14 Lê Văn Khương, Q12, ...]"
+                android:textSize="20sp"
+                android:layout_marginVertical="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textSize="20sp"
+                android:layout_marginLeft="40dp"/>
+            <TextView
+                android:id="@+id/txtInfoName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anna"
+                android:textSize="20sp"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone:"
+                android:textSize="20sp"
+                android:layout_marginLeft="40dp"/>
+            <TextView
+                android:id="@+id/txtInfoPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0906892109"
+                android:textSize="20sp"
+                android:layout_marginLeft="5dp"
+                android:inputType="phone"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:gravity="center"
+        android:text="Select your device you wanna fix:"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners"
+                    android:src="@drawable/electric_icon"
+                    android:tag="Electronic"
+                    android:onClick="clickToSelectDevice"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_electronic"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners"
+                    android:contentDescription="@string/vehicle_icon"
+                    android:src="@drawable/vehicle_icon"
+                    android:tag="Vehicle"
+                    android:onClick="clickToSelectDevice"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_vehicle"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners"
+                    android:contentDescription="@string/computer_icon"
+                    android:src="@drawable/computer_icon"
+                    android:tag="Computer"
+                    android:onClick="clickToSelectDevice"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_computer"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners"
+                    android:contentDescription="@string/security_icon"
+                    android:src="@drawable/security_icon"
+                    android:tag="Security"
+                    android:onClick="clickToSelectDevice"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_security"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners"
+                    android:contentDescription="@string/plumber_icon"
+                    android:src="@drawable/plumber_icon"
+                    android:tag="Plumber"
+                    android:onClick="clickToSelectDevice"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_plumber"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corners"
+                    android:contentDescription="@string/mobile_icon"
+                    android:src="@drawable/mobile_icon"
+                    android:tag="Mobile"
+                    android:onClick="clickToSelectDevice"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/text_mobile"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

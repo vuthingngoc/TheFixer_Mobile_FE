@@ -18,6 +18,7 @@
     <string name="text_plumber">Plumber</string>
     <string name="text_mobile">Mobile</string>
     <string name="label_fixer_nearby">Best Fixer Nearby</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_username">Id Account</string>
@@ -39,5 +40,6 @@
     <string name="hint_email">Email</string>
     <string name="hint_phone">Phone</string>
     <string name="hint_confirm_password">Confirm Password</string>
+    <string name="label_best_deal_today">Best Deal Today</string>
 
 </resources>

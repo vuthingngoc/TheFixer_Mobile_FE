@@ -3,7 +3,9 @@ package com.example.thefixer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.EditText;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+
     private Bundle createAdmin() {
         String id = "admin";
         String password = "admin";
@@ -84,5 +87,16 @@ public class MainActivity extends AppCompatActivity {
                 Bundle bundle = data.getBundleExtra("info");
             }
         }
+
+    public void clickToCheckFixerInfo(View view) {
+        Intent intent = new Intent(this, FixerInfoActivity.class);
+        String info = view.getTag().toString();
+        intent.putExtra("info",info);
+        startActivity(intent);
+    }
+
+    public void clickToLiveFix(View view) {
+        Intent intent = new Intent(this, LiveFixCategoryActivity.class);
+        startActivity(intent);
     }
 }
