@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheFixer">
         <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" />
+        <activity
             android:name=".DiviceDetailActivity"
             android:exported="true" />
         <activity
