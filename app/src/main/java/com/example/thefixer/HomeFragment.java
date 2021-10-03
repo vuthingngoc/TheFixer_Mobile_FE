@@ -14,10 +14,6 @@ import android.widget.ViewFlipper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import com.example.thefixer.R;
-import com.example.thefixer.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
@@ -71,6 +67,7 @@ public class HomeFragment extends Fragment {
         vfBanner.setInAnimation(getActivity(), android.R.anim.slide_out_right);
 
     }
+
 
     @Override
     public void onDestroyView() {

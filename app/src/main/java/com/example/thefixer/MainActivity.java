@@ -1,6 +1,9 @@
 package com.example.thefixer;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -31,4 +34,15 @@ private ActivityMainBinding binding;
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    public void clickToCheckFixerInfo(View view) {
+        Intent intent = new Intent(this, FixerInfoActivity.class);
+        String info = view.getTag().toString();
+        intent.putExtra("info",info);
+        startActivity(intent);
+    }
+
+    public void clickToLiveFix(View view) {
+        Intent intent = new Intent(this, LiveFixCategoryActivity.class);
+        startActivity(intent);
+    }
 }

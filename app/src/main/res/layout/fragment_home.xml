@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginVertical="20dp">
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -39,6 +40,27 @@
                 android:id="@+id/vfBanner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/bg_repairman" />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Live Fix Now"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="20dp"
+                    android:onClick="clickToLiveFix"
+                    android:background="@drawable/rounded_button"/>
+            </FrameLayout>
 
 
             <TableLayout
@@ -225,10 +247,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/border_linearlayout"
+                android:background="@drawable/border_linearlayout_blue"
                 android:layout_gravity="center"
                 android:paddingHorizontal="15dp"
-                android:layout_marginVertical="10dp">
+                android:layout_marginVertical="10dp"
+                android:onClick="clickToCheckFixerInfo"
+                android:tag="Alexander-Electronic-4">
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -346,10 +370,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/border_linearlayout"
+                android:background="@drawable/border_linearlayout_blue"
                 android:layout_gravity="center"
                 android:paddingHorizontal="15dp"
-                android:layout_marginVertical="10dp">
+                android:layout_marginVertical="10dp"
+                android:onClick="clickToCheckFixerInfo"
+                android:tag="Bill Gate-Vehicle-4">
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -362,7 +388,7 @@
                         <TextView
                             android:layout_width="80dp"
                             android:layout_height="wrap_content"
-                            android:text="Electronic"
+                            android:text="Vehicle"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textAlignment="center"/>
@@ -397,7 +423,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Alexander"
+                                android:text="Bill Gate"
                                 android:textSize="18sp"
                                 android:textStyle="bold"
                                 android:textColor="@color/black"
@@ -455,7 +481,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1.0 km"
+                            android:text="1.2 km"
                             android:layout_marginLeft="20dp"
                             android:textColor="#938C8C"/>
 
@@ -467,10 +493,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/border_linearlayout"
+                android:background="@drawable/border_linearlayout_blue"
                 android:layout_gravity="center"
                 android:paddingHorizontal="15dp"
-                android:layout_marginVertical="10dp">
+                android:layout_marginVertical="10dp"
+                android:onClick="clickToCheckFixerInfo"
+                android:tag="Alexander-Security-4">
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -483,7 +511,7 @@
                         <TextView
                             android:layout_width="80dp"
                             android:layout_height="wrap_content"
-                            android:text="Electronic"
+                            android:text="Security"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textAlignment="center"/>
@@ -576,7 +604,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1.0 km"
+                            android:text="1.3 km"
                             android:layout_marginLeft="20dp"
                             android:textColor="#938C8C"/>
 
@@ -588,10 +616,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@drawable/border_linearlayout"
+                android:background="@drawable/border_linearlayout_blue"
                 android:layout_gravity="center"
                 android:paddingHorizontal="15dp"
-                android:layout_marginVertical="10dp">
+                android:layout_marginVertical="10dp"
+                android:onClick="clickToCheckFixerInfo"
+                android:tag="Alexander-Computer-4">
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -604,7 +634,7 @@
                         <TextView
                             android:layout_width="80dp"
                             android:layout_height="wrap_content"
-                            android:text="Electronic"
+                            android:text="Computer"
                             android:textSize="15sp"
                             android:textStyle="bold"
                             android:textAlignment="center"/>
@@ -697,7 +727,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1.0 km"
+                            android:text="1.4 km"
                             android:layout_marginLeft="20dp"
                             android:textColor="#938C8C"/>
 
@@ -705,6 +735,392 @@
                 </TableRow>
             </LinearLayout>
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:text="@string/label_best_deal_today"
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    android:layout_gravity="left|center"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="50dp"
+                    android:text="See More..."
+                    android:textSize="18sp"
+                    android:textColor="@color/light_blue"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/border_linearlayout_blue"
+                android:layout_gravity="center"
+                android:paddingHorizontal="15dp"
+                android:layout_marginVertical="10dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"/>
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="110dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/avatar"
+                                app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:background="@drawable/rounded_border_white"
+                                android:padding="5dp"
+                                android:src="@drawable/green_circle" />
+                        </FrameLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Newton"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginTop="20dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_empty_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_empty_icon"
+                                android:layout_marginTop="25dp"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Chuyên gia về điện thoại."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Bán liên kiện điện thoại tốt."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Hỗ trợ tư vấn tại nhà."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/line_vector"
+                            android:layout_marginLeft="15dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3.2 km"
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+
+                    </LinearLayout>
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/border_linearlayout_blue"
+                android:layout_gravity="center"
+                android:paddingHorizontal="15dp"
+                android:layout_marginVertical="10dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"/>
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="110dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/avatar"
+                                app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:background="@drawable/rounded_border_white"
+                                android:padding="5dp"
+                                android:src="@drawable/green_circle" />
+                        </FrameLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Watson"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginTop="20dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_empty_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_empty_icon"
+                                android:layout_marginTop="25dp"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Chuyên gia về điện thoại."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Bán liên kiện điện thoại tốt."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Hỗ trợ tư vấn tại nhà."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/line_vector"
+                            android:layout_marginLeft="15dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3.3 km"
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+
+                    </LinearLayout>
+                </TableRow>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/border_linearlayout_blue"
+                android:layout_gravity="center"
+                android:paddingHorizontal="15dp"
+                android:layout_marginVertical="10dp">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="Mobile"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textAlignment="center"/>
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="110dp"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/avatar"
+                                app:shapeAppearanceOverlay="@style/round_imageview_avatar"/>
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:background="@drawable/rounded_border_white"
+                                android:padding="5dp"
+                                android:src="@drawable/green_circle" />
+                        </FrameLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pewdiepie"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginTop="20dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_empty_icon"
+                                android:layout_marginTop="25dp"/>
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/star_empty_icon"
+                                android:layout_marginTop="25dp"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Chuyên gia về điện thoại."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Bán liên kiện điện thoại tốt."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="- Hỗ trợ tư vấn tại nhà."
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/line_vector"
+                            android:layout_marginLeft="15dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3.4 km"
+                            android:layout_marginLeft="20dp"
+                            android:textColor="#938C8C"/>
+
+                    </LinearLayout>
+                </TableRow>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
