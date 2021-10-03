@@ -14,9 +14,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.thefixer.R;
 import com.example.thefixer.databinding.FragmentActivityBinding;
 
-public class ActivityFragment extends Fragment {
+public class ActivityFragment extends Fragment{
 
-    public ActivityFragment(){}
+    public ActivityFragment (){}
 
     @Nullable
     @Override

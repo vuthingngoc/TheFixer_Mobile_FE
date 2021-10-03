@@ -18,5 +18,5 @@
     <string name="text_plumber">Plumber</string>
     <string name="text_mobile">Mobile</string>
     <string name="label_fixer_nearby">Best Fixer Nearby</string>
-
+    <string name="map_api_key">AIzaSyAlfj4MNidu9Bn_HJykzu13-aIOtEaPZOA</string>
 </resources>
