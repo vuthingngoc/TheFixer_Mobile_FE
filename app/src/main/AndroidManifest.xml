@@ -8,11 +8,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheFixer">
         <activity
-            android:name=".FixerInfomationActivity"
+            android:name=".ConfirmActivity"
             android:exported="true" />
         <activity
             android:name=".MapActivity"
@@ -22,6 +23,21 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_api_key" />
 
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DiviceDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LiveFixCategoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".FixerInfoActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

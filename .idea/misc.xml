@@ -41,10 +41,17 @@
         <entry key="..\:/Users/PC/Desktop/TheFixer/TheFixer_Mobile_FE/app/src/main/res/layout/fragment_inbox.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/PC/Desktop/TheFixer/TheFixer_Mobile_FE/app/src/main/res/layout/fragment_payment.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/PC/Desktop/TheFixer/TheFixer_Mobile_FE/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_confirm_fixed.xml" value="0.264" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_confirm.xml" value="0.2" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_confirm_fixed.xml" value="0.1" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_divice_detail_activity.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_edit_info.xml" value="0.16614583333333333" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_fixer_info.xml" value="0.16614583333333333" />
         <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_fixer_infomation.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_live_fix_category.xml" value="0.24456521739130435" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_login.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_map.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_map.xml" value="0.152" />
+        <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/activity_signup.xml" value="0.24456521739130435" />
         <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/fragment_account.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/fragment_activity.xml" value="0.2" />
         <entry key="..\:/Users/vuong/Desktop/HCI/TheFixer_Mobile_FE/app/src/main/res/layout/fragment_home.xml" value="0.264" />
