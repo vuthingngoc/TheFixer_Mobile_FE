@@ -12,7 +12,7 @@ public class FixerInfomationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fixer_infomation);
-        text = findViewById(R.id.maker);
+        text = findViewById(R.id.marker);
         String title =  getIntent().getStringExtra("title");
         text.setText("title");
     }
