@@ -7,134 +7,176 @@
     android:orientation="vertical"
     tools:context=".DiviceDetailActivity">
 
-
-    <TextView
-        android:id="@+id/txtDeviceDetailTitle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="Hello ABC, let describe your problem"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Your problem:"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/edtProblem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:gravity="top|start"
-        android:inputType="textMultiLine"
-        android:lines="8"
-        android:maxLines="10"
-        android:minLines="6"
-        android:scrollbars="vertical"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Your problem image:"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <FrameLayout
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Choose your device:"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llListDevice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/imgDevice1"
-                    android:layout_width="160dp"
-                    android:layout_height="120dp" />
-
-                <ImageView
-                    android:id="@+id/imgCameraDevice1"
-                    android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+                <Spinner
+                    android:id="@+id/spinnerDevice"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:clickable="true"
-                    android:onClick="clickToUploadImage"
-                    android:src="@drawable/ic_photo_camera_black_48dp"
-                    android:tag="1"
-                    app:tint="#FF000000"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
+                    android:layout_gravity="center" />
+            </LinearLayout>
 
-            <FrameLayout
+            <TextView
+                android:id="@+id/txtDeviceDetailTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Hello ABC, let describe your problem"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Your Device Problem:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:id="@+id/llListProblem"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="If you want to write more detail:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/edtProblem"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="textMultiLine"
+                android:minLines="2"
+                android:maxLines="4"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Your problem image:"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp">
+
+                        <ImageView
+                            android:id="@+id/imgDevice1"
+                            android:layout_width="160dp"
+                            android:layout_height="120dp" />
+
+                        <ImageView
+                            android:id="@+id/imgCameraDevice1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:onClick="clickToUploadImage"
+                            android:src="@drawable/ic_photo_camera_black_48dp"
+                            android:tag="1"
+                            app:tint="#FF000000"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp">
+
+                        <ImageView
+                            android:id="@+id/imgDevice2"
+                            android:layout_width="160dp"
+                            android:layout_height="120dp" />
+
+                        <ImageView
+                            android:id="@+id/imgCameraDevice2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:onClick="clickToUploadImage"
+                            android:src="@drawable/ic_photo_camera_black_48dp"
+                            android:tag="2"
+                            app:tint="#FF000000"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp">
+
+                        <ImageView
+                            android:id="@+id/imgDevice3"
+                            android:layout_width="160dp"
+                            android:layout_height="120dp" />
+
+                        <ImageView
+                            android:id="@+id/imgCameraDevice3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clickable="true"
+                            android:onClick="clickToUploadImage"
+                            android:src="@drawable/ic_photo_camera_black_48dp"
+                            android:tag="3"
+                            app:tint="#FF000000"
+                            tools:ignore="SpeakableTextPresentCheck" />
+                    </FrameLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/imgDevice2"
-                    android:layout_width="160dp"
-                    android:layout_height="120dp" />
-
-                <ImageView
-                    android:id="@+id/imgCameraDevice2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:clickable="true"
-                    android:onClick="clickToUploadImage"
-                    android:src="@drawable/ic_photo_camera_black_48dp"
-                    android:tag="2"
-                    app:tint="#FF000000"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-
-                <ImageView
-                    android:id="@+id/imgDevice3"
-                    android:layout_width="160dp"
-                    android:layout_height="120dp" />
-
-                <ImageView
-                    android:id="@+id/imgCameraDevice3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:clickable="true"
-                    android:onClick="clickToUploadImage"
-                    android:src="@drawable/ic_photo_camera_black_48dp"
-                    android:tag="3"
-                    app:tint="#FF000000"
-                    tools:ignore="SpeakableTextPresentCheck" />
-            </FrameLayout>
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_button"
+                android:onClick="clickToSaveDeviceInfo"
+                android:text="Save device's information"
+                android:textSize="20sp" />
         </LinearLayout>
-    </HorizontalScrollView>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save device's information"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:layout_gravity="center"
-        android:background="@drawable/rounded_button"
-        android:onClick="clickToSaveDeviceInfo"/>
+    </ScrollView>
 
 </LinearLayout>

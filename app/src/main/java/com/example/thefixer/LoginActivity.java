@@ -87,8 +87,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void clickToSignup(View view) {
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
-        //startActivityForResult(i,CODE);
-        this.finish();
         startActivity(intent);
     }
 //    @Override

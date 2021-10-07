@@ -1,8 +1,11 @@
 package com.example.thefixer;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -95,7 +98,5 @@ public class MainActivity extends AppCompatActivity {
     public void clickToLiveFix(View view) {
         Intent intent = new Intent(this, LiveFixCategoryActivity.class);
         startActivity(intent);
-        //Intent intent = new Intent(this, ConfirmActivity.class);
-        //startActivity(intent);
     }
 }

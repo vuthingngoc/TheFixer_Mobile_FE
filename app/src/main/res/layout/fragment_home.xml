@@ -10,8 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="20dp">
+        android:orientation="horizontal">
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -46,20 +45,54 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/ivFixNow"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/bg_repairman" />
+                    android:src="@drawable/bg_repairman"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="We Fix Live"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-----------------------------------"
+                        android:textSize="25sp"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Our Best Fixer is waiting for you"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Live Fix Now"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
                     android:layout_gravity="bottom|center"
                     android:layout_marginBottom="20dp"
+                    android:background="@drawable/rounded_button_live_fix"
+                    android:theme="@style/Button.Orange"
                     android:onClick="clickToLiveFix"
-                    android:background="@drawable/rounded_button"/>
+                    android:text="Live Fix Now"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
             </FrameLayout>
 
 

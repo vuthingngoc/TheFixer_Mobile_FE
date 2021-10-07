@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,13 +24,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     GoogleMap map;
     private ProgressDialog myProgress;
+    private TextView txtFixerDetailCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        Intent intent = new Intent();
+        txtFixerDetailCategory = findViewById(R.id.txtFixerDetailCategory);
+        Intent intent = getIntent();
+        txtFixerDetailCategory.setText(intent.getStringExtra("USER_DEVICE").toString());
         // product = intent.getStringExtra("USER_DEVICE");
         //String problem = intent.getStringExtra("Problem");
     }
@@ -88,6 +92,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         }).start();
         Intent intent = new Intent(this, ConfirmActivity.class);
+        intent.putExtra("CATEGORY", txtFixerDetailCategory.getText().toString());
         startActivity(intent);
     }
     Handler handler = new Handler() {

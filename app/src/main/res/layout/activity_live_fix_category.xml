@@ -7,75 +7,101 @@
     android:orientation="vertical"
     tools:context=".LiveFixCategoryActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Edit your information:"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:gravity="center"/>
-
     <LinearLayout
-        android:layout_width="400dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
+        android:orientation="horizontal"
         android:background="@drawable/border_linearlayout_red"
-        android:onClick="clickToEditInfo">
+        android:onClick="clickToEditInfo"
+        android:layout_gravity="center">
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_location"
-                android:paddingHorizontal="10dp"/>
-            <TextView
-                android:id="@+id/txtInfoAddress"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:paddingHorizontal="10dp"
+                    android:src="@drawable/ic_location" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:text="Địa chỉ của bạn"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[399/14 Lê Văn Khương, Q12, ...]"
-                android:textSize="20sp"
-                android:layout_marginVertical="5dp"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="Name:"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtInfoName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="Anna"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="Phone:"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtInfoPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:inputType="phone"
+                    android:text="0906892109"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtInfoAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="[399/14 Lê Văn Khương, P.Hiệp thành, Quận 12, TpHCM]"
+                    android:textSize="20sp" />
+            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name:"
-                android:textSize="20sp"
-                android:layout_marginLeft="40dp"/>
-            <TextView
-                android:id="@+id/txtInfoName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Anna"
-                android:textSize="20sp"
-                android:layout_marginLeft="5dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phone:"
-                android:textSize="20sp"
-                android:layout_marginLeft="40dp"/>
-            <TextView
-                android:id="@+id/txtInfoPhone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0906892109"
-                android:textSize="20sp"
-                android:layout_marginLeft="5dp"
-                android:inputType="phone"/>
-        </LinearLayout>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_next"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
     <TextView
@@ -83,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:gravity="center"
-        android:text="Select your device you wanna fix:"
+        android:text="We Are Provide these Services"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -133,9 +159,9 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/vehicle_icon"
+                    android:onClick="clickToSelectDevice"
                     android:src="@drawable/vehicle_icon"
-                    android:tag="Vehicle"
-                    android:onClick="clickToSelectDevice"/>
+                    android:tag="Vehicle" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -158,9 +184,9 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/computer_icon"
+                    android:onClick="clickToSelectDevice"
                     android:src="@drawable/computer_icon"
-                    android:tag="Computer"
-                    android:onClick="clickToSelectDevice"/>
+                    android:tag="Computer" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -188,9 +214,9 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/security_icon"
+                    android:onClick="clickToSelectDevice"
                     android:src="@drawable/security_icon"
-                    android:tag="Security"
-                    android:onClick="clickToSelectDevice"/>
+                    android:tag="Security" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -213,9 +239,9 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/plumber_icon"
+                    android:onClick="clickToSelectDevice"
                     android:src="@drawable/plumber_icon"
-                    android:tag="Plumber"
-                    android:onClick="clickToSelectDevice"/>
+                    android:tag="Plumber" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -238,9 +264,9 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
                     android:contentDescription="@string/mobile_icon"
+                    android:onClick="clickToSelectDevice"
                     android:src="@drawable/mobile_icon"
-                    android:tag="Mobile"
-                    android:onClick="clickToSelectDevice"/>
+                    android:tag="Mobile" />
 
                 <TextView
                     android:layout_width="match_parent"

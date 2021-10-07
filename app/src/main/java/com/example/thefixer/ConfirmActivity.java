@@ -21,7 +21,7 @@ import java.util.Date;
 public class ConfirmActivity extends AppCompatActivity {
 
     private ProgressDialog myProgress;
-    private TextView edtDate, edtProduct, edtProblem;
+    private TextView edtDate, edtProduct, edtProblem, txtFixerDetailCategory;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +31,11 @@ public class ConfirmActivity extends AppCompatActivity {
         edtProblem = findViewById(R.id.edtProblem);
         Date date = new Date();
         edtDate.setText(date.toString());
-        Intent intent = new Intent();
+        Intent intent = getIntent();
         edtProduct.setText("Mobile");
         edtProblem.setText("Not active!");
+        txtFixerDetailCategory = findViewById(R.id.txtFixerDetailCategory);
+        txtFixerDetailCategory.setText(intent.getStringExtra("CATEGORY"));
     }
 
     public void clickToConfirm(View view) {
