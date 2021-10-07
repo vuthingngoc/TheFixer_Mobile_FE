@@ -1,5 +1,7 @@
 package com.example.thefixer;
 
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;

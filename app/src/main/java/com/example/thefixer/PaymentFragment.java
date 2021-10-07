@@ -11,9 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.thefixer.R;
-import com.example.thefixer.databinding.FragmentPaymentBinding;
-
 public class PaymentFragment extends Fragment {
 
     public PaymentFragment(){
