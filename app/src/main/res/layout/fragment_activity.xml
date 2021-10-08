@@ -22,10 +22,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-=======
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
 
 
     <ScrollView
@@ -524,7 +520,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginHorizontal="18dp"
+                                    android:layout_marginHorizontal="14dp"
                                     android:text="Ngày: 18-05-2021"
                                     android:textColor="@color/black"
                                     android:textSize="16sp" />
@@ -592,7 +588,6 @@
                                     android:text="Feedback" />
                             </LinearLayout>
 
-
                         </LinearLayout>
                     </TableRow>
                 </LinearLayout>
@@ -600,5 +595,4 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
->>>>>>> origin
 </LinearLayout>
