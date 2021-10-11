@@ -172,7 +172,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/rounded_button"
+                android:background="@drawable/button1_bg"
+                android:textColor="@color/white"
                 android:onClick="clickToSaveDeviceInfo"
                 android:text="Save device's information"
                 android:textSize="20sp" />

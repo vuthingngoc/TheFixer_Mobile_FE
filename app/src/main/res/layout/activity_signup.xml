@@ -297,12 +297,14 @@
 
                 <Button
                     android:id="@+id/btnSignUp"
-                    style="@style/Button1"
                     android:layout_width="342dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="12dp"
                     android:onClick="clickToSignup"
+                    android:background="@drawable/button1_bg"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
                     android:text="@string/button_sign_up" />
 
                 <LinearLayout

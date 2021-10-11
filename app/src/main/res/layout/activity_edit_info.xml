@@ -63,7 +63,8 @@
         android:text="Save Infomation"
         android:textSize="25sp"
         android:padding="15dp"
-        android:background="@drawable/rounded_button"
+        android:background="@drawable/button1_bg"
+        android:textColor="@color/white"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:onClick="clickToSaveInfo"/>
