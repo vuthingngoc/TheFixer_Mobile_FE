@@ -31,7 +31,7 @@ public class EditInfoActivity extends AppCompatActivity {
         edtInfoAddress.setText(info[0]);
         edtInfoName.setText(info[1]);
         edtInfoPhone.setText(info[2]);
-        
+
     }
 
     public void clickToSaveInfo(View view) {
