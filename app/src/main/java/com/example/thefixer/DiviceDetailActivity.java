@@ -3,10 +3,13 @@ package com.example.thefixer;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,11 +34,11 @@ import java.util.Locale;
 
 public class DiviceDetailActivity extends AppCompatActivity {
 
-    private TextView txtDeviceDetailTitle, titleOther;
+    private TextView txtDeviceDetailTitle, titleOther, txtSaveDeviceInfo;
     private ImageView imgDevice1, imgCameraDevice1, imgDevice2, imgCameraDevice2, imgDevice3, imgCameraDevice3;
     private EditText edtProblem, otherOption;
-    private Spinner spinnerDevice, spinnerProblem;
-    private LinearLayout llListDevice, llListProblem;
+    private Spinner spinnerDevice;
+    private LinearLayout llListDevice, llListProblem, llDevideInfo;
     private String selected_sp, userDevice, userInfo;
     private ProgressDialog myProgress;
 
@@ -47,6 +50,10 @@ public class DiviceDetailActivity extends AppCompatActivity {
         Intent intent = this.getIntent();
         userInfo = intent.getStringExtra("USER_INFO");
         userDevice = intent.getStringExtra("USER_DEVICE");
+
+        txtSaveDeviceInfo = findViewById(R.id.txtSaveDeviceInfo);
+        llDevideInfo = findViewById(R.id.llDevideInfo);
+
 
         txtDeviceDetailTitle = findViewById(R.id.txtDeviceDetailTitle);
         String username = userInfo.split("-")[1];
@@ -78,6 +85,10 @@ public class DiviceDetailActivity extends AppCompatActivity {
         listDeviceProblem.add("--Choose Problem--");
         switch (userDevice) {
             case "Electronic":
+                txtSaveDeviceInfo.setBackgroundTintList(getResources().getColorStateList(R.color.md_yellow_400));
+                Drawable dEle = getResources().getDrawable(R.drawable.border_linearlayout_electronic);
+                llDevideInfo.setBackgroundDrawable(dEle);
+
                 listDevice.add("Điều hòa");
                 listDevice.add("Tivi");
                 listDevice.add("Bình nóng lạnh");
@@ -88,28 +99,48 @@ public class DiviceDetailActivity extends AppCompatActivity {
                 listDevice.add("Khác");
                 break;
             case "Vehicle":
+                txtSaveDeviceInfo.setBackgroundTintList(getResources().getColorStateList(R.color.md_blue_100));
+                Drawable dVeh = getResources().getDrawable(R.drawable.border_linearlayout_vehicle);
+                llDevideInfo.setBackgroundDrawable(dVeh);
+
                 listDevice.add("Xe ôtô con");
                 listDevice.add("Xe máy");
                 listDevice.add("Xe đạp");
                 listDevice.add("Khác");
                 break;
             case "Computer":
+                txtSaveDeviceInfo.setBackgroundTintList(getResources().getColorStateList(R.color.green_lighter));
+                Drawable dCom = getResources().getDrawable(R.drawable.border_linearlayout_computer);
+                llDevideInfo.setBackgroundDrawable(dCom);
+
                 listDevice.add("Máy bàn");
                 listDevice.add("Laptop");
                 listDevice.add("Khác");
                 break;
             case "Security":
+                txtSaveDeviceInfo.setBackgroundTintList(getResources().getColorStateList(R.color.md_red_300));
+                Drawable dSec = getResources().getDrawable(R.drawable.border_linearlayout_security);
+                llDevideInfo.setBackgroundDrawable(dSec);
+
                 listDevice.add("Camera");
                 listDevice.add("Còi chống trộm");
                 listDevice.add("Khác");
                 break;
             case "Plumber":
+                txtSaveDeviceInfo.setBackgroundTintList(getResources().getColorStateList(R.color.md_blue_400));
+                Drawable dPlu = getResources().getDrawable(R.drawable.border_linearlayout_plumber);
+                llDevideInfo.setBackgroundDrawable(dPlu);
+
                 listDevice.add("Ống nước");
                 listDevice.add("Nguồn nước");
                 listDevice.add("Máy bơm");
                 listDevice.add("Khác");
                 break;
             case "Mobile":
+                txtSaveDeviceInfo.setBackgroundTintList(getResources().getColorStateList(R.color.md_purple_200));
+                Drawable dMob = getResources().getDrawable(R.drawable.border_linearlayout_mobile);
+                llDevideInfo.setBackgroundDrawable(dMob);
+
                 listDevice.add("Điện thoại");
                 listDevice.add("Máy tính bảng");
                 listDevice.add("Khác");
@@ -126,10 +157,11 @@ public class DiviceDetailActivity extends AppCompatActivity {
                     llListDevice.addView(titleOther);
                     llListDevice.addView(otherOption);
                     listDeviceProblem.clear();
-                }
-                else {
+                    listDeviceProblem.add("Khác");
+                    SpinnerProblemUI(listDeviceProblem);
+                } else {
 
-                    switch (selected_sp){
+                    switch (selected_sp) {
                         case "Điều hòa":
                             listDeviceProblem.clear();
                             listDeviceProblem.add("Bảo dưỡng & Vệ sinh máy");
@@ -141,6 +173,7 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Lắp chuyển hướng gió cục nóng");
                             listDeviceProblem.add("Điều hòa không mát");
                             listDeviceProblem.add("Điều hòa chảy nước");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Tivi":
                             listDeviceProblem.clear();
@@ -151,6 +184,7 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Nhiễu, mất tín hiệu");
                             listDeviceProblem.add("Có mùi khét, nghi chập điện");
                             listDeviceProblem.add("Tivi kêu to bất thường");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Bình nóng lạnh":
                             listDeviceProblem.clear();
@@ -159,6 +193,7 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Bình không ra nước nóng");
                             listDeviceProblem.add("Rò điện từ bình nước nóng");
                             listDeviceProblem.add("Tháo/ Lắp bình nước nóng");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Máy giặt":
                             listDeviceProblem.clear();
@@ -169,6 +204,7 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Không vào điện");
                             listDeviceProblem.add("Máy giặt chảy nước");
                             listDeviceProblem.add("Thủng/ rách gioăng cửa máy");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Tủ lạnh":
                             listDeviceProblem.clear();
@@ -178,6 +214,7 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Có mùi khét, nghi chập điện");
                             listDeviceProblem.add("Tủ kêu to bất thường");
                             listDeviceProblem.add("Thay gioăng cảnh cửa tủ");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Máy lọc nước":
                             listDeviceProblem.clear();
@@ -186,11 +223,13 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Nước thải ra liên tục");
                             listDeviceProblem.add("Thay lõi lọc");
                             listDeviceProblem.add("Thay lõi lọc RO");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Lò vi sóng / Lò nướng":
                             listDeviceProblem.clear();
                             listDeviceProblem.add("Lò không vào điện");
                             listDeviceProblem.add("Lò không không hoạt động đúng");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Xe ôtô con":
                             listDeviceProblem.clear();
@@ -201,6 +240,7 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Thay bình");
                             listDeviceProblem.add("Sạc bình");
                             listDeviceProblem.add("Cứu hộ tại chỗ");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Xe máy":
                             listDeviceProblem.clear();
@@ -211,6 +251,7 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Sạc bình");
                             listDeviceProblem.add("Thay bình");
                             listDeviceProblem.add("Cứu hộ tại chỗ");
+                            listDeviceProblem.add("Khác");
                             break;
                         case "Xe đạp":
                             listDeviceProblem.clear();
@@ -218,6 +259,85 @@ public class DiviceDetailActivity extends AppCompatActivity {
                             listDeviceProblem.add("Vá bánh xe");
                             listDeviceProblem.add("Cứu hộ tại chỗ");
                             listDeviceProblem.add("Sửa dây xích");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        case "Máy bàn":
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Vệ sinh máy");
+                            listDeviceProblem.add("Có mùi khét, nghi chập điện");
+                            listDeviceProblem.add("Không lên nguồn");
+                            listDeviceProblem.add("Thay linh kiện");
+                            listDeviceProblem.add("Rò rỉ tản nhiệt nước");
+                            listDeviceProblem.add("Tản nhiệt kêu to");
+                            listDeviceProblem.add("Cài đặt hệ điều hành");
+                            listDeviceProblem.add("Lỗi phần mềm");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        case "Laptop":
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Vệ sinh máy");
+                            listDeviceProblem.add("Có mùi khét, nghi chập điện");
+                            listDeviceProblem.add("Không lên nguồn");
+                            listDeviceProblem.add("Thay linh kiện");
+                            listDeviceProblem.add("Sửa linh kiện (Màn hình, Camera, Loa)");
+                            listDeviceProblem.add("Tản nhiệt kêu to");
+                            listDeviceProblem.add("Bàn phím, touch pad không nhận");
+                            listDeviceProblem.add("Cài đặt hệ điều hành");
+                            listDeviceProblem.add("Lỗi phần mềm");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        case "Camera":
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Mở Port");
+                            listDeviceProblem.add("Mất kết nối");
+                            listDeviceProblem.add("Lắp đặt camera");
+                            listDeviceProblem.add("Thiết bị không hoạt đông");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        case "Còi chống trộm":
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Mất âm thanh");
+                            listDeviceProblem.add("Không nhận diện đối tượng");
+                            listDeviceProblem.add("Mở Port");
+                            listDeviceProblem.add("Lắp đặt thiết bị");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        case "Ông nước":
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Rò rỉ đường ống");
+                            listDeviceProblem.add("Thay, sửa đường ống");
+                            listDeviceProblem.add("Vệ sinh đường ống");
+                            listDeviceProblem.add("Mắc dị vật trong đường ống");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        case "Nguồn nước":
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Kiểm tra nguồn nước");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        case "Máy bơm":
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Có mùi khét, nghi ngờ cháy máy");
+                            listDeviceProblem.add("Không lên nguồn");
+                            listDeviceProblem.add("Không thể bơm nước");
+                            listDeviceProblem.add("Lắp đặt máy bơm");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        case "Điện thoại":
+                        case "Máy tính bảng":
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Vỡ màn hình, mất cảm ứng");
+                            listDeviceProblem.add("Loa không phát ra âm thanh");
+                            listDeviceProblem.add("Không lên nguồn");
+                            listDeviceProblem.add("Khôi phục dữ liệu");
+                            listDeviceProblem.add("Gắn cường lực, chống trầy");
+                            listDeviceProblem.add("Không nhận sim");
+                            listDeviceProblem.add("Máy phình to");
+                            listDeviceProblem.add("Khác");
+                            break;
+                        default:
+                            listDeviceProblem.clear();
+                            listDeviceProblem.add("Khác");
                             break;
                     }
                     SpinnerProblemUI(listDeviceProblem);
@@ -233,7 +353,7 @@ public class DiviceDetailActivity extends AppCompatActivity {
         });
     }
 
-    public void SpinnerProblemUI(List<String> listDeviceProblem){
+    public void SpinnerProblemUI(List<String> listDeviceProblem) {
         llListProblem.removeAllViews();
         Spinner spinnerProblem = new Spinner(this);
         ArrayAdapter<String> dataAdapterProblem = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listDeviceProblem);

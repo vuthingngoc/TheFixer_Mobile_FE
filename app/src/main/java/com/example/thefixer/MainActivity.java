@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Bundle createAdmin() {
-        String id = "admin";
-        String password = "admin";
+        String id = "anna";
+        String password = "123456";
         String name = "Admin";
         String email = "admin@gmail.com";
         String phone = "123";
