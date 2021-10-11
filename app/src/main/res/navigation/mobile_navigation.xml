@@ -18,12 +18,6 @@
         tools:layout="@layout/fragment_activity" />
 
     <fragment
-        android:id="@+id/navigation_payment"
-        android:name="com.example.thefixer.PaymentFragment"
-        android:label="@string/title_payment"
-        tools:layout="@layout/fragment_payment" />
-
-    <fragment
         android:id="@+id/navigation_inbox"
         android:name="com.example.thefixer.InboxFragment"
         android:label="@string/title_inbox"
