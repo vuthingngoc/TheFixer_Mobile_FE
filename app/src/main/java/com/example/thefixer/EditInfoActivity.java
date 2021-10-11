@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 public class EditInfoActivity extends AppCompatActivity {
     private EditText edtInfoAddress, edtInfoName, edtInfoPhone;
@@ -30,7 +31,7 @@ public class EditInfoActivity extends AppCompatActivity {
         edtInfoAddress.setText(info[0]);
         edtInfoName.setText(info[1]);
         edtInfoPhone.setText(info[2]);
-
+        
     }
 
     public void clickToSaveInfo(View view) {

@@ -13,6 +13,7 @@
         android:orientation="horizontal"
         android:background="@drawable/border_linearlayout_red"
         android:onClick="clickToEditInfo"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center">
 
         <LinearLayout
@@ -133,6 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
+                    android:backgroundTint="@color/md_yellow_400"
                     android:onClick="clickToSelectDevice"
                     android:src="@drawable/electric_icon"
                     android:tag="Electronic"
@@ -158,6 +160,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
+                    android:backgroundTint="@color/md_blue_100"
                     android:contentDescription="@string/vehicle_icon"
                     android:onClick="clickToSelectDevice"
                     android:src="@drawable/vehicle_icon"
@@ -213,6 +216,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
+                    android:backgroundTint="@color/md_red_300"
                     android:contentDescription="@string/security_icon"
                     android:onClick="clickToSelectDevice"
                     android:src="@drawable/security_icon"
@@ -238,6 +242,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
+                    android:backgroundTint="@color/md_blue_400"
                     android:contentDescription="@string/plumber_icon"
                     android:onClick="clickToSelectDevice"
                     android:src="@drawable/plumber_icon"
@@ -263,6 +268,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounded_corners"
+                    android:backgroundTint="@color/md_purple_200"
                     android:contentDescription="@string/mobile_icon"
                     android:onClick="clickToSelectDevice"
                     android:src="@drawable/mobile_icon"
