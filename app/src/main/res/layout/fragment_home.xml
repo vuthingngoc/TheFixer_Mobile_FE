@@ -120,7 +120,8 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/rounded_corners"
                             android:backgroundTint="@color/md_yellow_400"
-                            android:src="@drawable/electric_icon" />
+                            android:src="@drawable/electric_icon"
+                            tools:ignore="SpeakableTextPresentCheck" />
 
                         <TextView
                             android:layout_width="match_parent"
