@@ -21,11 +21,11 @@
         android:id="@+id/navigation_inbox"
         android:name="com.example.thefixer.InboxFragment"
         android:label="@string/title_inbox"
-        tools:layout="@layout/fragment_inbox" />
+        tools:layout="@layout/fragment_payment" />
 
     <fragment
         android:id="@+id/navigation_account"
         android:name="com.example.thefixer.AccountFragment"
         android:label="@string/title_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_payment" />
 </navigation>
