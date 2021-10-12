@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-        checkLogin();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -100,4 +99,15 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LiveFixCategoryActivity.class);
         startActivity(intent);
     }
+
+    public void clickToEditAccount(View view) {
+        Intent intent = new Intent(this, EditAccountActivity.class);
+        startActivity(intent);
+    }
+
+    public void clickToChat(View view) {
+        Intent intent = new Intent(this, ChatActivity.class);
+        startActivity(intent);
+    }
+
 }

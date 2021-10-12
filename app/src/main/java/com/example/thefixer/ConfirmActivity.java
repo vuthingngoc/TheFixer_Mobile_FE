@@ -38,6 +38,25 @@ public class ConfirmActivity extends AppCompatActivity {
         txtFixerDetailCategory.setText(intent.getStringExtra("CATEGORY"));
     }
 
+    private Bundle createAdmin() {
+        String id = "anna";
+        String password = "123456";
+        String name = "Admin";
+        String email = "admin@gmail.com";
+        String phone = "123";
+        String address = "admin";
+        boolean isLogged = true;
+        Bundle bundle = new Bundle();
+        bundle.putString("id", id);
+        bundle.putString("password", password);
+        bundle.putString("name", name);
+        bundle.putString("email", email);
+        bundle.putString("phone", phone);
+        bundle.putString("address", address);
+        bundle.putBoolean("isLogged", isLogged);
+        return bundle;
+    }
+
     public void clickToConfirm(View view) {
         myProgress = new ProgressDialog(ConfirmActivity.this);
         myProgress.setMessage("Loading...");
@@ -65,6 +84,9 @@ public class ConfirmActivity extends AppCompatActivity {
             }
         }).start();
         Intent intent = new Intent(this, MainActivity.class);
+        Bundle bundle = createAdmin();
+        intent.putExtra("info", bundle);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
     Handler handler = new Handler() {
