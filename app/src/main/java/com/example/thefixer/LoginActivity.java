@@ -80,6 +80,10 @@ public class LoginActivity extends AppCompatActivity {
                     t.show();
                 }
             }
+            else {
+                Toast t = Toast.makeText(this, "Data is not valid", Toast.LENGTH_SHORT);
+                edtId.setError("Data is not valid");
+            }
         }
     }
 
@@ -91,6 +95,15 @@ public class LoginActivity extends AppCompatActivity {
     public void clickToSignup(View view) {
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
+    }
+    public void clickToNewPass(View view) {
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getBundleExtra("info");
+        if(bundle!=null){
+            intent = new Intent(LoginActivity.this, FogetActivity.class);
+            intent.putExtra("info", bundle);
+            startActivity(intent);
+        }
     }
 //    @Override
 //    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

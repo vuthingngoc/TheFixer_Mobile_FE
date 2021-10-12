@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
             if (bundle.getBoolean("isLogged") == false) {
                 checkLogin();
             }
-        }
 
+        }
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
