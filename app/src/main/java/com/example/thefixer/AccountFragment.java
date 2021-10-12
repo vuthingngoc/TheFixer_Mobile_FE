@@ -18,21 +18,20 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.thefixer.R;
 import com.example.thefixer.databinding.FragmentAccountBinding;
 
-public class AccountFragment extends AppCompatActivity {
+public class AccountFragment extends Fragment {
     private Button btnEditAccount, btnChangePassword, btnLogout;
 
-    public void clickToEditAccount(View view) {
-        Intent intent = new Intent(AccountFragment.this, EditAccountActivity.class);
-        startActivity(intent);
+    public AccountFragment (){}
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
+        return view;
     }
 
-    public void clickToEditPassword(View view) {
-        Intent intent = new Intent(AccountFragment.this, EditAccountActivity.class);
-        startActivity(intent);
-    }
-
-    public void clickToLogout(View view) {
-        Intent intent = new Intent(AccountFragment.this, LoginActivity.class);
-        startActivity(intent);
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 }
