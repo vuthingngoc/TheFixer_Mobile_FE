@@ -15,12 +15,15 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="Lịch sử đơn hàng"
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,14 +35,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingBottom="60dp">
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-Điện lạnh: "
+                android:text="Electronic: "
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_marginHorizontal="20dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -162,12 +170,16 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
-                                    android:text="Pre-order" />
+                                    android:text="Pre-order"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/button1_bg"/>
 
                                 <Button
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Feedback" />
+                                    android:text="Feedback"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/button1_bg"/>
                             </LinearLayout>
 
 
@@ -299,12 +311,16 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
-                                    android:text="Pre-order" />
+                                    android:text="Pre-order"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/button1_bg"/>
 
                                 <Button
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Feedback" />
+                                    android:text="Feedback"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/button1_bg"/>
                             </LinearLayout>
 
 
@@ -317,8 +333,9 @@
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="-Điện tử: "
+                android:text="Điện tử: "
                 android:textSize="20dp"
+                android:layout_marginHorizontal="20dp"
                 android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -442,12 +459,16 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
-                                    android:text="Pre-order" />
+                                    android:text="Pre-order"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/button1_bg"/>
 
                                 <Button
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Feedback" />
+                                    android:text="Feedback"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/button1_bg"/>
                             </LinearLayout>
 
 
@@ -578,12 +599,17 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginRight="15dp"
-                                    android:text="Pre-order" />
+                                    android:text="Pre-order"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/button1_bg"/>
 
                                 <Button
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Feedback" />
+                                    android:text="Feedback"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/button1_bg"
+                                    />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -591,6 +617,8 @@
                 </LinearLayout>
 
             </LinearLayout>
+        </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
