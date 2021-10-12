@@ -34,6 +34,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         txtFixerDetailCategory = findViewById(R.id.txtFixerDetailCategory);
         Intent intent = getIntent();
         txtFixerDetailCategory.setText(intent.getStringExtra("USER_DEVICE").toString());
+        setTitle("Map Page");
         // product = intent.getStringExtra("USER_DEVICE");
         //String problem = intent.getStringExtra("Problem");
     }

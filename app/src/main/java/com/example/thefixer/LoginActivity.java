@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setupUI();
         setupListeners();
+        setTitle("Login Page");
 
     }
     private void setupUI() {
