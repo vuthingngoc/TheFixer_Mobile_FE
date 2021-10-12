@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_activity, R.id.navigation_payment, R.id.navigation_inbox, R.id.navigation_account)
+                R.id.navigation_home, R.id.navigation_activity, R.id.navigation_inbox, R.id.navigation_account)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Bundle createAdmin() {
-        String id = "admin";
-        String password = "admin";
+        String id = "anna";
+        String password = "123456";
         String name = "Admin";
         String email = "admin@gmail.com";
         String phone = "123";
