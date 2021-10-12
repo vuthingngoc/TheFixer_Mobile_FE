@@ -102,4 +102,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             myProgress.incrementProgressBy(1);
         }
     };
+
+    public void clickToChatFixer(View view) {
+        Intent intent = new Intent(this, ChatActivity.class);
+        startActivity(intent);
+    }
 }
