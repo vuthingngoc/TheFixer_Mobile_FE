@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EditAccountActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First name"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="10dp"/>
+    <EditText
+        android:id="@+id/edtFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First name"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last Name:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="10dp"/>
+    <EditText
+        android:id="@+id/edtLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date Of Birth:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="10dp"/>
+
+    <EditText
+        android:id="@+id/edtDOB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="01/01/2000"
+        android:inputType="date"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Phone:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="10dp"/>
+
+    <EditText
+        android:id="@+id/edtPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="123"
+        android:inputType="phone"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address:"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="10dp"/>
+
+    <EditText
+        android:id="@+id/edtAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:text="399/14 Lê Văn Khương, P. Hiệp Thành, Q12, TP HCM"
+        android:inputType="text"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Infomation"
+        android:textSize="25sp"
+        android:padding="15dp"
+        android:background="@drawable/rounded_button"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:onClick="clickToSaveInfoAccount"/>
+</LinearLayout>

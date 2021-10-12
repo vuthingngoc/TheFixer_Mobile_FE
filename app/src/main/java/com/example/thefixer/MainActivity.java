@@ -99,4 +99,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LiveFixCategoryActivity.class);
         startActivity(intent);
     }
+
+    public void clickToEditAccount(View view) {
+        Intent intent = new Intent(this, EditAccountActivity.class);
+        startActivity(intent);
+    }
+
 }
