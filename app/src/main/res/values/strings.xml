@@ -41,6 +41,7 @@
     <string name="hint_phone">Phone</string>
     <string name="hint_confirm_password">Confirm Password</string>
     <string name="label_best_deal_today">Best Deal Today</string>
+    <string name="this_is_a_message">This is a Message</string>
 
     >>>>>>> origin
 </resources>

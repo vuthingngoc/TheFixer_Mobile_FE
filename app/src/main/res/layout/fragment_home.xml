@@ -82,19 +82,16 @@
                         android:layout_gravity="center"/>
                 </LinearLayout>
 
-                <TextView
+                <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginBottom="20dp"
-                    android:background="@drawable/button1_bg"
-                    android:backgroundTint="@color/md_deep_orange_400"
+                    android:background="@drawable/rounded_button_live_fix"
+                    android:theme="@style/Button.Orange"
                     android:onClick="clickToLiveFix"
-                    android:textColor="@color/white"
                     android:text="Live Fix Now"
-                    android:paddingHorizontal="40dp"
-                    android:paddingVertical="15dp"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
             </FrameLayout>
 
@@ -119,7 +116,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/rounded_corners"
-                            android:backgroundTint="@color/md_yellow_400"
                             android:src="@drawable/electric_icon" />
 
                         <TextView
@@ -142,7 +138,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/rounded_corners"
-                            android:backgroundTint="@color/md_blue_100"
                             android:src="@drawable/vehicle_icon"
                             android:contentDescription="@string/vehicle_icon"/>
 
@@ -195,7 +190,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/rounded_corners"
-                            android:backgroundTint="@color/md_red_300"
                             android:src="@drawable/security_icon"
                             android:contentDescription="@string/security_icon"/>
 
@@ -219,7 +213,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/rounded_corners"
-                            android:backgroundTint="@color/md_blue_400"
                             android:src="@drawable/plumber_icon"
                             android:contentDescription="@string/plumber_icon"/>
 
@@ -243,7 +236,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/rounded_corners"
-                            android:backgroundTint="@color/md_purple_200"
                             android:src="@drawable/mobile_icon"
                             android:contentDescription="@string/mobile_icon"/>
 
