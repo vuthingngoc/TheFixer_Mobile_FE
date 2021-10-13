@@ -191,7 +191,7 @@
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:onClick="clickToSaveDeviceInfo"
-                android:text="Save device's information"
+                android:text="Continues"
                 android:paddingVertical="20dp"
                 android:paddingHorizontal="25dp"
                 android:textSize="20sp"
