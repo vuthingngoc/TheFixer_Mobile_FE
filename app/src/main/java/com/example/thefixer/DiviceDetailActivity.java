@@ -7,27 +7,40 @@ import androidx.core.content.ContextCompat;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.VideoView;
 
+//import net.alhazmy13.mediapicker.Image.ImagePicker;
 import com.github.dhaval2404.imagepicker.ImagePicker;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.khizar1556.mkvideoplayer.MKPlayerActivity;
 
+import net.alhazmy13.mediapicker.Video.VideoPicker;
+
+import org.w3c.dom.Text;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -35,12 +48,12 @@ import java.util.Locale;
 public class DiviceDetailActivity extends AppCompatActivity {
 
     private TextView txtDeviceDetailTitle, titleOther, txtSaveDeviceInfo;
-    private ImageView imgDevice1, imgCameraDevice1, imgDevice2, imgCameraDevice2, imgDevice3, imgCameraDevice3;
     private EditText edtProblem, otherOption;
     private Spinner spinnerDevice;
-    private LinearLayout llListDevice, llListProblem, llDevideInfo;
-    private String selected_sp, userDevice, userInfo;
+    private LinearLayout llListDevice, llListProblem, llDevideInfo, llMediaContain;
+    private String selected_sp, userDevice, userInfo, device, problem;
     private ProgressDialog myProgress;
+    private int VIDEO_PICKER_REQUEST_CODE = 6670;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +67,8 @@ public class DiviceDetailActivity extends AppCompatActivity {
         txtSaveDeviceInfo = findViewById(R.id.txtSaveDeviceInfo);
         llDevideInfo = findViewById(R.id.llDevideInfo);
 
+        llMediaContain = findViewById(R.id.llMediaContain);
+
 
         txtDeviceDetailTitle = findViewById(R.id.txtDeviceDetailTitle);
         String username = userInfo.split("-")[1];
@@ -65,18 +80,12 @@ public class DiviceDetailActivity extends AppCompatActivity {
         otherOption = new EditText(this);
         otherOption.setTextSize(18);
         otherOption.setGravity(Gravity.CENTER);
+        otherOption.setHint("Input device here...");
 
         titleOther = new TextView(this);
         titleOther.setText("Input your device");
         titleOther.setTextSize(18);
         titleOther.setGravity(Gravity.CENTER);
-
-        imgDevice1 = findViewById(R.id.imgDevice1);
-        imgCameraDevice1 = findViewById(R.id.imgCameraDevice1);
-        imgDevice2 = findViewById(R.id.imgDevice2);
-        imgCameraDevice2 = findViewById(R.id.imgCameraDevice2);
-        imgDevice3 = findViewById(R.id.imgDevice3);
-        imgCameraDevice3 = findViewById(R.id.imgCameraDevice3);
 
         spinnerDevice = findViewById(R.id.spinnerDevice);
 
@@ -360,41 +369,24 @@ public class DiviceDetailActivity extends AppCompatActivity {
         dataAdapterProblem.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerProblem.setAdapter(dataAdapterProblem);
         spinnerProblem.setGravity(Gravity.CENTER);
+        spinnerProblem.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                problem = spinnerProblem.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         llListProblem.addView(spinnerProblem);
-    }
-
-    public void clickToUploadImage(View view) {
-        int imageNum = Integer.parseInt(view.getTag().toString());
-        ImagePicker.with(DiviceDetailActivity.this)
-//                        .crop()	    			//Crop image(Optional), Check Customization for more option
-//                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
-//                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
-                .start(imageNum);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case 1:
-                Uri uri1 = data.getData();
-                imgDevice1.setImageURI(uri1);
-                break;
-            case 2:
-                Uri uri2 = data.getData();
-                imgDevice2.setImageURI(uri2);
-                break;
-            default:
-                Uri uri3 = data.getData();
-                imgDevice3.setImageURI(uri3);
-                break;
-        }
     }
 
     public void clickToSaveDeviceInfo(View view) {
         myProgress = new ProgressDialog(DiviceDetailActivity.this);
-        myProgress.setMessage("Loading...");
-        myProgress.setTitle("Please wait...");
+        myProgress.setMessage("Đang lưu dữ liệu...");
+        myProgress.setTitle("Vui lòng chờ xí...");
         myProgress.setProgressStyle(myProgress.STYLE_HORIZONTAL);
         myProgress.setProgress(0);
         myProgress.setMax(10);
@@ -419,8 +411,9 @@ public class DiviceDetailActivity extends AppCompatActivity {
         }).start();
         Intent intent = new Intent(this, MapActivity.class);
         edtProblem = findViewById(R.id.edtProblem);
-        intent.putExtra("Problem", edtProblem.getText().toString());
-        intent.putExtra("USER_DEVICE", userDevice);
+        intent.putExtra("PROBLEM", problem);
+        intent.putExtra("SERVICES", userDevice);
+        intent.putExtra("DEVICE", selected_sp);
         startActivity(intent);
     }
 
@@ -432,4 +425,65 @@ public class DiviceDetailActivity extends AppCompatActivity {
         }
     };
 
+    public void clickToUploadImage(View view) {
+        ImagePicker.with(DiviceDetailActivity.this)
+//                        .crop()	    			//Crop image(Optional), Check Customization for more option
+//                        .compress(1024)			//Final image size will be less than 1 MB(Optional)
+//                        .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                .start(VIDEO_PICKER_REQUEST_CODE);
+    }
+
+    public void clickToLoadVideo(View view) {
+        new VideoPicker.Builder(this)
+                .mode(VideoPicker.Mode.GALLERY)
+                .directory(VideoPicker.Directory.DEFAULT)
+                .extension(VideoPicker.Extension.MP4)
+                .enableDebuggingMode(true)
+                .build();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == VideoPicker.VIDEO_PICKER_REQUEST_CODE && resultCode == RESULT_OK) {
+            List<String> mPaths =  data.getStringArrayListExtra(VideoPicker.EXTRA_VIDEO_PATH);
+            //Your Code
+            VideoView vid1 = new VideoView(this);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(300,300);
+            lp.setMargins(5,0,5,0);
+            vid1.setLayoutParams(lp);
+            ViewGroup.MarginLayoutParams marginParams = (ViewGroup.MarginLayoutParams) vid1.getLayoutParams();
+            marginParams.setMargins(5, 0, 5, 0);
+            vid1.setLayoutParams(marginParams);
+//            String videoPath = "android.resource://com.example.thefixer/" + R.raw.test;
+            String videoPath = "/storage/emulated/0/Download/sample-mp4-file.mp4";
+//            Uri uri = Uri.parse(videoPath);
+            Uri uri =Uri.fromFile(new File(videoPath));
+            vid1.setVideoURI(uri);
+//            vid1.setVideoPath(mPaths.get(0));
+            TextView test = new TextView(this);
+            test.setLayoutParams(lp);
+            test.setText(videoPath);
+            vid1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    vid1.start();
+                }
+            });
+            llMediaContain.addView(vid1);
+//            llMediaContain.addView(test);
+//            MKPlayerActivity.configPlayer(this).play(mPaths.get(0));
+        }
+
+        if (requestCode == VIDEO_PICKER_REQUEST_CODE && resultCode == RESULT_OK) {
+            ImageView img1 = new ImageView(this);
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(300,300);
+            lp.setMargins(5,0,5,30);
+            img1.setLayoutParams(lp);
+            Uri uri1 = data.getData();
+            img1.setImageURI(uri1);
+            llMediaContain.addView(img1);
+        }
+    }
 }

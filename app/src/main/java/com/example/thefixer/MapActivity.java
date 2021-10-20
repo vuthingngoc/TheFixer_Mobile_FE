@@ -3,7 +3,9 @@ package com.example.thefixer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,8 +25,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     GoogleMap map;
-    private ProgressDialog myProgress;
     private TextView txtFixerDetailCategory;
+    private String device, problem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         txtFixerDetailCategory = findViewById(R.id.txtFixerDetailCategory);
         Intent intent = getIntent();
-        txtFixerDetailCategory.setText(intent.getStringExtra("USER_DEVICE").toString());
+        txtFixerDetailCategory.setText(intent.getStringExtra("SERVICES"));
+        device = intent.getStringExtra("DEVICE");
+        problem = intent.getStringExtra("PROBLEM");
         setTitle("Map Page");
         // product = intent.getStringExtra("USER_DEVICE");
         //String problem = intent.getStringExtra("Problem");
@@ -54,7 +58,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 
 
-
        /* map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
@@ -67,45 +70,57 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
 
     public void clickToConfirm(View view) {
-        myProgress = new ProgressDialog(MapActivity.this);
-        myProgress.setMessage("Loading...");
-        myProgress.setTitle("Please wait...");
-        myProgress.setProgressStyle(myProgress.STYLE_HORIZONTAL);
-        myProgress.setProgress(0);
-        myProgress.setMax(10);
-        myProgress.show();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    while (myProgress.getProgress() < myProgress.getMax()) {
-                        Thread.sleep(1000);
-                        System.out.println("runningggg");
-                        handler.sendMessage(handler.obtainMessage());
-                    }
-
-                    if (myProgress.getProgress() >= myProgress.getMax()) {
-                        myProgress.dismiss();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
         Intent intent = new Intent(this, ConfirmActivity.class);
-        intent.putExtra("CATEGORY", txtFixerDetailCategory.getText().toString());
+        intent.putExtra("SERVICES", txtFixerDetailCategory.getText().toString());
+        intent.putExtra("PROBLEM", problem);
+        intent.putExtra("DEVICE", device);
         startActivity(intent);
     }
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            myProgress.incrementProgressBy(1);
-        }
-    };
 
     public void clickToChatFixer(View view) {
         Intent intent = new Intent(this, ChatActivity.class);
         startActivity(intent);
+    }
+
+    private Bundle createAdmin() {
+        String id = "anna";
+        String password = "123456";
+        String name = "Admin";
+        String email = "admin@gmail.com";
+        String phone = "123";
+        String address = "admin";
+        boolean isLogged = true;
+        Bundle bundle = new Bundle();
+        bundle.putString("id", id);
+        bundle.putString("password", password);
+        bundle.putString("name", name);
+        bundle.putString("email", email);
+        bundle.putString("phone", phone);
+        bundle.putString("address", address);
+        bundle.putBoolean("isLogged", isLogged);
+        return bundle;
+    }
+
+    private void cancelService() {
+        Intent intent = new Intent(this, MainActivity.class);
+        Bundle bundle = createAdmin();
+        intent.putExtra("info", bundle);
+        startActivity(intent);
+    }
+
+    public void clickToCancelService(View view) {
+        new AlertDialog.Builder(this)
+                .setTitle("Cancel Service")
+                .setMessage("The Fixer is coming do to cancel this service?")
+
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with delete operation
+                        cancelService();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }

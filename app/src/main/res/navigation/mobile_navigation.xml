@@ -6,12 +6,6 @@
     app:startDestination="@+id/navigation_home">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.thefixer.HomeFragment"
-        android:label="Good Morning, Anna!"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
         android:id="@+id/navigation_activity"
         android:name="com.example.thefixer.ActivityFragment"
         android:label="@string/title_activity"
@@ -22,6 +16,12 @@
         android:name="com.example.thefixer.InboxFragment"
         android:label="@string/title_inbox"
         tools:layout="@layout/fragment_inbox" />
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.thefixer.HomeFragment"
+        android:label="Good Morning, Anna!"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_account"
