@@ -10,6 +10,12 @@
         <item name="cornerSize">25dp</item>
         <item name="color">#FFFFFF</item>
     </style>
+
+    <style name="round_imageview_avatar_profile" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">40dp</item>
+        <item name="color">#FFFFFF</item>
+    </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->

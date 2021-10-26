@@ -2,93 +2,68 @@ package com.example.thefixer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.TextView;
-import android.widget.ToggleButton;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.ToggleButton;
+
 import java.util.ArrayList;
 
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class FixerMatching extends AppCompatActivity implements OnMapReadyCallback {
 
     GoogleMap map;
-    private TextView txtFixerDetailCategory;
-    private String device, problem;
+    LatLng mylocation, userLocation;
+    LinearLayout llFixerMap, llFixerInfo;
+    TextView txtTheFixer;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     private TextView btnNo, btnYes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
-        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        setContentView(R.layout.activity_fixer_matching);
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.mapFixerMatching);
         mapFragment.getMapAsync(this);
-        txtFixerDetailCategory = findViewById(R.id.txtFixerDetailCategory);
-        Intent intent = getIntent();
-        txtFixerDetailCategory.setText(intent.getStringExtra("SERVICES"));
-        device = intent.getStringExtra("DEVICE");
-        problem = intent.getStringExtra("PROBLEM");
-        setTitle("Map Page");
-        // product = intent.getStringExtra("USER_DEVICE");
-        //String problem = intent.getStringExtra("Problem");
-    }
 
+        llFixerInfo = findViewById(R.id.llFixerInfo);
+        llFixerMap = findViewById(R.id.llFixerMap);
+        txtTheFixer = findViewById(R.id.txtTheFixer);
+    }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(@NonNull GoogleMap googleMap) {
         map = googleMap;
-        LatLng sydney1 = new LatLng(10.8316482, 106.6754297);
-        map.addMarker(new MarkerOptions().position(sydney1));
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney1));
+        mylocation = new LatLng(10.8351754, 106.8053879);
+        map.addMarker(new MarkerOptions().position(mylocation));
+        map.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
 
-        LatLng sydney2 = new LatLng(10.8351754, 106.8053879);
-        map.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.fixer)).position(sydney2));
-        map.moveCamera(CameraUpdateFactory.newLatLng(sydney2));
-
-        map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-
-
-       /* map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(@NonNull Marker marker) {
-                String markerTitle = marker.getTitle();
-                Intent intent = new Intent(MapActivity.this, ConfirmFixedActivity.class);
-                startActivity(intent);
-                return false;
-            }
-        });*/
+        map.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+        map.addCircle(new CircleOptions()
+                .center(mylocation)
+                .radius(1000)
+                .strokeWidth(0)
+                .fillColor(Color.argb(80,122,202,68)));
     }
 
-    public void clickToConfirm(View view) {
-        Intent intent = new Intent(this, ConfirmActivity.class);
-        intent.putExtra("SERVICES", txtFixerDetailCategory.getText().toString());
-        intent.putExtra("PROBLEM", problem);
-        intent.putExtra("DEVICE", device);
-        startActivity(intent);
-    }
 
-    public void clickToChatFixer(View view) {
-        Intent intent = new Intent(this, ChatActivity.class);
-        startActivity(intent);
+    public void clickToMoveToMyLocation(View view) {
+        map.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
     }
 
     private Bundle createAdmin() {
@@ -101,8 +76,35 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("account", listAccount);
         bundle.putBoolean("isLogged", isLogged);
-        bundle.putString("role", "user");
+        bundle.putString("role", "fixer");
         return bundle;
+    }
+
+    public void clickToUnready(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        Bundle bundle = createAdmin();
+        intent.putExtra("info", bundle);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        this.setResult(RESULT_OK, intent);
+        this.finish();
+    }
+
+    public void clickToGetBooked(View view) {
+        map.clear();
+        mylocation = new LatLng(10.8351754, 106.8053879);
+        map.addMarker(new MarkerOptions().position(mylocation));
+        map.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
+
+        userLocation = new LatLng(10.831255, 106.805956);
+        map.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.user_circle)).position(userLocation));
+        map.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+        map.animateCamera(CameraUpdateFactory.zoomTo(14), 2000, null);
+
+        llFixerMap.removeView(llFixerInfo);
+        llFixerMap.removeView(txtTheFixer);
+
+
+
     }
 
     private void cancelService() {
@@ -110,13 +112,13 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Bundle bundle = createAdmin();
         intent.putExtra("info", bundle);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+        this.setResult(RESULT_OK, intent);
+        this.finish();
     }
 
-
-    public void createCancelServices(View v) {
+    public void clickToCancelFixer(View view) {
         dialogBuilder = new AlertDialog.Builder(this);
-        final View contactPopupView = getLayoutInflater().inflate(R.layout.popup, null);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.popup_fixer, null);
 
         dialogBuilder.setView(contactPopupView);
         dialog = dialogBuilder.create();

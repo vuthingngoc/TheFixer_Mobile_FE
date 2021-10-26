@@ -84,7 +84,7 @@ public class ConfirmActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         Bundle bundle = createAdmin();
         intent.putExtra("info", bundle);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
     Handler handler = new Handler() {

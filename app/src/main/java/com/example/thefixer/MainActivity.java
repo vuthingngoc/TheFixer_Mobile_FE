@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.thefixer.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             if (bundle.getBoolean("isLogged") == false) {
                 checkLogin();
             }
-
         }
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -44,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_activity, R.id.navigation_home, R.id.navigation_inbox, R.id.navigation_account)
+                R.id.navigation_activity, R.id.navigation_home, R.id.navigation_activity, R.id.navigation_account)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -53,21 +56,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Bundle createAdmin() {
-        String id = "anna";
-        String password = "123456";
-        String name = "Admin";
-        String email = "admin@gmail.com";
-        String phone = "123";
-        String address = "admin";
+        AccountDTO dto1 = new AccountDTO("anna", "123456", "user");
+        AccountDTO dto2 = new AccountDTO("fixer", "123456", "fixer");
+        ArrayList<AccountDTO> listAccount = new ArrayList<>();
+        listAccount.add(dto1);
+        listAccount.add(dto2);
         boolean isLogged = false;
         Bundle bundle = new Bundle();
-        bundle.putString("id", id);
-        bundle.putString("password", password);
-        bundle.putString("name", name);
-        bundle.putString("email", email);
-        bundle.putString("phone", phone);
-        bundle.putString("address", address);
+        bundle.putParcelableArrayList("account", listAccount);
         bundle.putBoolean("isLogged", isLogged);
+        bundle.putString("role", "user");
         return bundle;
     }
 
@@ -84,6 +82,28 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == CODE) {
             if (resultCode == RESULT_OK) {
                 Bundle bundle = data.getBundleExtra("info");
+                NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+                BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.nav_view);
+                if (bundle.getString("role").equals("fixer")) {
+                    AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                            R.id.navigation_fixer_activity, R.id.navigation_fixer_homepage, R.id.navigation_activity, R.id.navigation_account)
+                            .build();
+                    navController.setGraph(R.navigation.fixer_navigation);
+                    NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+                    NavigationUI.setupWithNavController(binding.navView, navController);
+
+                    bottomNavigationView.getMenu().clear();
+                    bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu_fixer);
+                } else {
+                    AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                            R.id.navigation_activity, R.id.navigation_home, R.id.navigation_activity, R.id.navigation_account)
+                            .build();
+                    navController.setGraph(R.navigation.mobile_navigation);
+                    NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+                    NavigationUI.setupWithNavController(binding.navView, navController);
+                    bottomNavigationView.getMenu().clear();
+                    bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu);
+                }
             }
         }
     }
@@ -110,4 +130,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void clickToGetReady(View view) {
+        Intent intent = new Intent(this, FixerMatching.class);
+        startActivity(intent);
+    }
+
+    public void clickToLogout(View view) {
+        checkLogin();
+    }
 }
