@@ -21,21 +21,19 @@ import java.util.Date;
 public class ConfirmActivity extends AppCompatActivity {
 
     private ProgressDialog myProgress;
-    private TextView edtDate, edtProduct, edtProblem, txtFixerDetailCategory;
+    private TextView edtDate, txtDevice, txtProblem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm);
         edtDate = findViewById(R.id.edtDate);
-        edtProduct = findViewById(R.id.edtProduct);
-        edtProblem = findViewById(R.id.edtProblem);
+        txtDevice = findViewById(R.id.txtDevice);
+        txtProblem = findViewById(R.id.txtProblem);
         Date date = new Date();
         edtDate.setText(date.toString());
         Intent intent = getIntent();
-        edtProduct.setText("Mobile");
-        edtProblem.setText("Not active!");
-        txtFixerDetailCategory = findViewById(R.id.txtFixerDetailCategory);
-        txtFixerDetailCategory.setText(intent.getStringExtra("CATEGORY"));
+        txtDevice.setText(intent.getStringExtra("DEVICE"));
+        txtProblem.setText(intent.getStringExtra("PROBLEM"));
     }
 
     private Bundle createAdmin() {
@@ -59,8 +57,8 @@ public class ConfirmActivity extends AppCompatActivity {
 
     public void clickToConfirm(View view) {
         myProgress = new ProgressDialog(ConfirmActivity.this);
-        myProgress.setMessage("Loading...");
-        myProgress.setTitle("Please wait...");
+        myProgress.setMessage("Đang cập nhật dữ liệu...");
+        myProgress.setTitle("Vui lòng chờ xíu...");
         myProgress.setProgressStyle(myProgress.STYLE_HORIZONTAL);
         myProgress.setProgress(0);
         myProgress.setMax(10);
@@ -86,7 +84,7 @@ public class ConfirmActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         Bundle bundle = createAdmin();
         intent.putExtra("info", bundle);
-//        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }
     Handler handler = new Handler() {

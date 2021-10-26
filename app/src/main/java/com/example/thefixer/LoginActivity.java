@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText edtId, edtPassword;
@@ -25,13 +27,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setupUI();
         setupListeners();
+        setTitle("Login Page");
 
     }
+
     private void setupUI() {
         edtId = findViewById(R.id.edtId);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
     }
+
     private void setupListeners() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,25 +67,26 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = this.getIntent();
             Bundle bundle = intent.getBundleExtra("info");
             if (bundle != null) {
-                String idValue = bundle.getString("id");
-                String passwordValue = bundle.getString("password");
-                if (idValue.equals(edtId.getText().toString()) && passwordValue.equals(edtPassword.getText().toString())) {
-                    //everything checked we open new activity
-                    Toast t = Toast.makeText(this, "Login succeed", Toast.LENGTH_SHORT);
-                    t.show();
-                    bundle.putBoolean("isLogged",true);
-                   // Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                    //i.putExtra("info", bundle);
-                    Intent i = this.getIntent();
-                    intent.putExtra("info", bundle);
-                    this.setResult(RESULT_OK, intent);
-                    this.finish();
-                } else {
-                    Toast t = Toast.makeText(this, "Wrong ID or password!", Toast.LENGTH_SHORT);
-                    t.show();
+                ArrayList<AccountDTO> accountList = bundle.getParcelableArrayList("account");
+                boolean check = false;
+                for (AccountDTO dto : accountList) {
+                    if (dto.getUsername().equals(edtId.getText().toString()) && dto.getPassword().equals(edtPassword.getText().toString())) {
+                        Toast.makeText(this, "Login succeed", Toast.LENGTH_SHORT).show();
+                        bundle.putBoolean("isLogged", true);
+                        bundle.putString("role", dto.getRole());
+                        Intent i = this.getIntent();
+                        intent.putExtra("info", bundle);
+                        check = true;
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        this.setResult(RESULT_OK, intent);
+                        this.finish();
+                        break;
+                    }
                 }
-            }
-            else {
+                if (!check) {
+                    Toast.makeText(this, "Wrong ID or password!", Toast.LENGTH_SHORT).show();
+                }
+            } else {
                 Toast t = Toast.makeText(this, "Data is not valid", Toast.LENGTH_SHORT);
                 edtId.setError("Data is not valid");
             }
@@ -96,10 +102,11 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
         startActivity(intent);
     }
+
     public void clickToNewPass(View view) {
         Intent intent = this.getIntent();
         Bundle bundle = intent.getBundleExtra("info");
-        if(bundle!=null){
+        if (bundle != null) {
             intent = new Intent(LoginActivity.this, FogetActivity.class);
             intent.putExtra("info", bundle);
             startActivity(intent);

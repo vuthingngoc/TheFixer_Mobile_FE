@@ -20,11 +20,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/green"
                 android:gravity="center"
-                android:text="Confirm fixed success"
+                android:text="Confirm Fixed Success"
                 android:textSize="20dp"
                 android:textStyle="bold" />
+
+            <View
+                android:layout_width="360dp"
+                android:layout_height="2dp"
+                android:layout_marginVertical="10dp"
+                android:layout_gravity="center"
+                android:background="@color/Grey_500"/>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -40,11 +47,6 @@
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:background="@color/green" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -78,16 +80,7 @@
                                 android:id="@+id/txtFixerDetailName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="Watson"
-                                android:textAlignment="center"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/txtFixerDetailCategory"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="Category"
+                                android:text="Đỗ Đăng Thanh"
                                 android:textAlignment="center"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
@@ -106,6 +99,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+
                         tools:ignore="SpeakableTextPresentCheck" />
 
                     <TextView
@@ -123,52 +117,65 @@
                         android:layout_marginHorizontal="20dp"
                         android:inputType="textMultiLine"
                         android:maxLines="6"
-                        android:minLines="3"
+                        android:minLines="2"
+                        android:hint="Input your comment here ..."
                         tools:ignore="SpeakableTextPresentCheck" />
                 </LinearLayout>
+
+                <View
+                    android:layout_width="390dp"
+                    android:layout_height="2dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_gravity="center"
+                    android:background="@color/black"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Date: "
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:inputType="none"/>
 
-                    <EditText
+                    <TextView
                         android:id="@+id/edtDate"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="25dp"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Product: "
+                        android:text="Device: "
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtProduct"
+                    <TextView
+                        android:id="@+id/txtDevice"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                        android:layout_height="30dp"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+                        android:inputType="none"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -177,18 +184,18 @@
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/edtProblem"
+                    <TextView
+                        android:id="@+id/txtProblem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
                         android:gravity="top|start"
-                        android:inputType="textMultiLine"
+                        android:inputType="none"
                         android:lines="8"
                         android:maxLines="10"
-                        android:minLines="6"
+                        android:minLines="3"
                         android:scrollbars="vertical"
-                        tools:ignore="SpeakableTextPresentCheck" />
+                        tools:ignore="SpeakableTextPresentCheck"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -201,7 +208,8 @@
                         android:layout_height="wrap_content"
                         android:text="Status: Done!"
                         android:textSize="15sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"/>
 
                 </LinearLayout>
 
@@ -209,8 +217,11 @@
             </LinearLayout>
 
             <Button
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button"
                 android:onClick="clickToConfirm"
                 android:text="Confirm" />
         </LinearLayout>
