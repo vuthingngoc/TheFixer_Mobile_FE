@@ -2,6 +2,9 @@ package com.example.thefixer;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -13,14 +16,24 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import org.xmlpull.v1.XmlPullParser;
 
 import java.util.ArrayList;
 
@@ -28,11 +41,15 @@ public class FixerMatching extends AppCompatActivity implements OnMapReadyCallba
 
     GoogleMap map;
     LatLng mylocation, userLocation;
-    LinearLayout llFixerMap, llFixerInfo;
+    LinearLayout llFixerMap, llFixerInfo, llFixerConfirm;
     TextView txtTheFixer;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     private TextView btnNo, btnYes;
+    private TextView btnDeny, btnAccept, btnClose;
+    private NotificationManager manager;
+    private int noticeId = 2212;
+    private int numMess = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +61,7 @@ public class FixerMatching extends AppCompatActivity implements OnMapReadyCallba
         llFixerInfo = findViewById(R.id.llFixerInfo);
         llFixerMap = findViewById(R.id.llFixerMap);
         txtTheFixer = findViewById(R.id.txtTheFixer);
+        llFixerConfirm = findViewById(R.id.llFixerConfirm);
     }
 
     @Override
@@ -85,26 +103,63 @@ public class FixerMatching extends AppCompatActivity implements OnMapReadyCallba
         Bundle bundle = createAdmin();
         intent.putExtra("info", bundle);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Toast.makeText(this,"Service finished",Toast.LENGTH_SHORT).show();
         this.setResult(RESULT_OK, intent);
         this.finish();
     }
 
+//    public void clickToAccept(View view) {
+//        map.clear();
+//        mylocation = new LatLng(10.8351754, 106.8053879);
+//        map.addMarker(new MarkerOptions().position(mylocation));
+//        map.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
+//
+//        userLocation = new LatLng(10.831255, 106.805956);
+//        map.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.user_circle)).position(userLocation));
+//        map.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+//        map.animateCamera(CameraUpdateFactory.zoomTo(14), 2000, null);
+//
+//        llFixerMap.removeView(llFixerConfirm);
+//        llFixerMap.removeView(llFixerInfo);
+//        llFixerMap.removeView(txtTheFixer);
+//    }
     public void clickToGetBooked(View view) {
-        map.clear();
-        mylocation = new LatLng(10.8351754, 106.8053879);
-        map.addMarker(new MarkerOptions().position(mylocation));
-        map.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.popup_confirm, null);
 
-        userLocation = new LatLng(10.831255, 106.805956);
-        map.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.user_circle)).position(userLocation));
-        map.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
-        map.animateCamera(CameraUpdateFactory.zoomTo(14), 2000, null);
-
-        llFixerMap.removeView(llFixerInfo);
-        llFixerMap.removeView(txtTheFixer);
+        dialogBuilder.setView(contactPopupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
 
 
+        btnDeny = contactPopupView.findViewById(R.id.btnDeny);
+        btnDeny.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
 
+        btnAccept = contactPopupView.findViewById(R.id.btnAccept);
+        btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                map.clear();
+                mylocation = new LatLng(10.8351754, 106.8053879);
+                map.addMarker(new MarkerOptions().position(mylocation));
+                map.moveCamera(CameraUpdateFactory.newLatLng(mylocation));
+
+                userLocation = new LatLng(10.831255, 106.805956);
+                map.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromResource(R.drawable.user_circle)).position(userLocation));
+                map.moveCamera(CameraUpdateFactory.newLatLng(userLocation));
+                map.animateCamera(CameraUpdateFactory.zoomTo(14), 2000, null);
+
+                llFixerMap.removeView(llFixerConfirm);
+                llFixerMap.removeView(llFixerInfo);
+                llFixerMap.removeView(txtTheFixer);
+            }
+        });
     }
 
     private void cancelService() {
@@ -196,5 +251,29 @@ public class FixerMatching extends AppCompatActivity implements OnMapReadyCallba
                 dialog.dismiss();
             }
         });
+    }
+
+    public void clickToGetInformation(View view) {
+//        Intent intent = new Intent(this, FixerConfirmActivity.class);
+//        startActivity(intent);
+        dialogBuilder = new AlertDialog.Builder(this);
+        final View contactPopupView = getLayoutInflater().inflate(R.layout.activity_fixer_confirm, null);
+
+        dialogBuilder.setView(contactPopupView);
+        dialog = dialogBuilder.create();
+        dialog.show();
+
+
+        btnClose = contactPopupView.findViewById(R.id.btnClose);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+    }
+    public void clickToChat(View view) {
+      Intent intent = new Intent(this, ChatActivity.class);
+        startActivity(intent);
     }
 }

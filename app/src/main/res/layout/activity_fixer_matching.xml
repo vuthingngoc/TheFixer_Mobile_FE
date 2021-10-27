@@ -149,7 +149,7 @@
             android:layout_height="100dp"
             android:textSize="20sp"
             android:textColor="@color/Grey_300"
-            android:text="The Fixer"
+            android:text="Start"
             android:textStyle="bold"
             android:layout_marginTop="20dp"
             android:onClick="clickToGetBooked"/>
@@ -184,12 +184,32 @@
                     android:textStyle="bold"
                     android:text="0906892109"
                     android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button1_bg"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginTop="3dp"
+                    android:paddingVertical="5dp"
+                    android:text="Information"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:onClick="clickToGetInformation"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:layout_marginLeft="10dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -203,6 +223,20 @@
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:text="Vấn đề: Bể lốp xe"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button1_bg"
+                    android:backgroundTint="@color/Grey_400"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="5dp"
+                    android:text="CHAT"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="40dp"
+                    android:textStyle="bold"
+                    android:onClick="clickToChat"/>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

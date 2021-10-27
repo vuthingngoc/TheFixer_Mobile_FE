@@ -27,8 +27,8 @@ public class ChatActivity extends AppCompatActivity {
         FirebaseDatabase.getInstance()
                 .getReference()
                 .push()
-                .setValue(new ChatMessage("Xin chào, tôi sẽ đến trong 15 phút nữa",
-                        "Sancho")
+                .setValue(new ChatMessage("Xin chào, tôi đang đợi bạn",
+                        "Anna")
                 );
         FloatingActionButton fab =
                 (FloatingActionButton) findViewById(R.id.fab);

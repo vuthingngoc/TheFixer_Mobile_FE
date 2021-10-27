@@ -1,8 +1,11 @@
 package com.example.thefixer;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -86,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.nav_view);
                 if (bundle.getString("role").equals("fixer")) {
                     AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                            R.id.navigation_fixer_activity, R.id.navigation_fixer_homepage, R.id.navigation_activity, R.id.navigation_account)
+                            R.id.navigation_fixer_activity, R.id.navigation_fixer_homepage, R.id.navigation_inbox, R.id.navigation_account)
                             .build();
                     navController.setGraph(R.navigation.fixer_navigation);
                     NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
